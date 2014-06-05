@@ -30,6 +30,9 @@ namespace UsabilityDynamics\WPP {
        */
       public function __construct( $parent = array(), $module = array() ) {
 
+        wp_register_script( 'wpp-jquery-data-tables', plugins_url( 'static/scripts/jquery.dataTables.min.js', dirname( __DIR__ ) ), array( 'jquery', 'wpp-localization' ) );
+        wp_register_style( 'wpp-jquery-data-tables', plugins_url( 'static/styles/wpp.admin.data.tables.css', dirname( __DIR__ ) ) );
+
         try {
 
           // Initialize Module.
