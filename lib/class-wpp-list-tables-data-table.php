@@ -11,7 +11,7 @@ namespace UsabilityDynamics\WPP\List_Tables {
 
   require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 
-    if( !class_exists( 'UsabilityDynamics\WPP\List_Tables\Data_Table' ) && class_exists( 'WP_List_Table' ) ) {
+  if( !class_exists( 'UsabilityDynamics\WPP\List_Tables\Data_Table' ) && class_exists( 'WP_List_Table' ) ) {
 
     /**
      * Class WPP_List_Table
@@ -221,7 +221,7 @@ namespace UsabilityDynamics\WPP\List_Tables {
       /**
        * Get search results based on query.
        *
-       * @todo Needs to be updated to handle the AJAX requests.
+       * @todo Remove WPP_F reference.
        *
        */
       function prepare_items( $wpp_search = false, $ajax = true ) {
@@ -231,7 +231,11 @@ namespace UsabilityDynamics\WPP\List_Tables {
         if ( !$ajax ) $this->all_items = array();
 
         if ( !isset( $this->all_items ) ) {
-          $this->all_items = WPP_F::get_properties( $wpp_search );
+
+          if( method_exists( 'WPP_F', 'get_properties' ) ) {
+            $this->all_items = \WPP_F::get_properties( $wpp_search );
+          }
+
         }
 
         //** Do pagination  */

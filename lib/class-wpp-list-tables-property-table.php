@@ -9,10 +9,12 @@ namespace UsabilityDynamics\WPP\List_Tables {
 
     class Property_Table extends Data_Table {
 
-    /**
-     * @param string $args
+      /**
+       *
+       * @param string $args
        */
       function __construct( $args = '' ) {
+
         $args = wp_parse_args( $args, array(
           'plural' => '',
           'iColumns' => 3,
@@ -23,9 +25,13 @@ namespace UsabilityDynamics\WPP\List_Tables {
           'table_scope' => 'wpp_overview',
           'singular' => '',
           'ajax' => false
-        ) );
+        ));
 
         parent::__construct( $args );
+
+        wp_enqueue_script( 'wpp-jquery-data-tables' );
+        wp_enqueue_style( 'wpp-jquery-data-tables' );
+
       }
 
       /**
@@ -71,7 +77,9 @@ namespace UsabilityDynamics\WPP\List_Tables {
 
         $ID = (int) $ID;
 
-        $post = WPP_F::get_property( $ID );
+        if( method_exists( 'WPP_F', 'get_property' ) ) {
+          $post = \WPP_F::get_property( $ID );
+        }
 
         $post = (object) $post;
 
