@@ -2,6 +2,9 @@ temp
 node_modules
 npm-debug.log
 
+vendor/composer/installers
+vendor/usabilitydynamics/lib-installer
+
 .svn
 .idea
 .idea/workspace.xml

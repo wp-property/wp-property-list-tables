@@ -2,7 +2,6 @@
   "name": "usabilitydynamics/wp-property-list-tables",
   "version": "0.1.0",
   "type": "wordpress-module",
-  "homepage": "",
   "keywords": [],
   "minimum-stability": "dev",
   "repositories": [
@@ -13,13 +12,12 @@
   ],
   "require": {
     "php": ">=5.3",
-    "usabilitydynamics/lib-installer": "master"
+    "usabilitydynamics/lib-installer": "master",
+    "datatables/datatables": "dev-master"
   },
   "require-dev": {},
   "autoload": {
-    "classmap": [
-      "lib"
-    ]
+    "classmap": [ "lib" ]
   },
   "authors": [
     {
